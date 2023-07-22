@@ -27,7 +27,7 @@ python -m pip install -r requirements.txt
 ```
 3. Run the script in your terminal.
 ```commandline
-python tracker.py --help
+python main.py --help
 ```
 4. You should see the following text on your screen
 ```commandline
@@ -62,7 +62,7 @@ The following commands are available for the Habit Tracker:
 Add a new habit with the provided name and periodicity.
 
 ```bash
-python tracker.py habit-add --name <HABIT_NAME> --periodicity <daily|weekly>
+python main.py habit-add --name <HABIT_NAME> --periodicity <daily|weekly>
 ```
 
 Example of output:
@@ -76,7 +76,7 @@ Habit 'running' with periodicity 'daily' is added to the table
 Delete an existing habit by providing its name.
 
 ```bash
-python tracker.py habit-delete --name <HABIT_NAME>
+python main.py habit-delete --name <HABIT_NAME>
 ```
 
 ### Editing a Habit
@@ -84,7 +84,7 @@ python tracker.py habit-delete --name <HABIT_NAME>
 Edit an existing habit by providing its name and optional new name and/or periodicity.
 
 ```bash
-python tracker.py habit-edit --name <HABIT_NAME> [--new-name <NEW_HABIT_NAME>] [--new-periodicity <daily|weekly>]
+python main.py habit-edit --name <HABIT_NAME> [--new-name <NEW_HABIT_NAME>] [--new-periodicity <daily|weekly>]
 ```
 
 ### Checking-off a Habit
@@ -92,7 +92,7 @@ python tracker.py habit-edit --name <HABIT_NAME> [--new-name <NEW_HABIT_NAME>] [
 Check-off a habit for the current day, updating streak information if applicable.
 
 ```bash
-python tracker.py habit-check-off --name <HABIT_NAME>
+python main.py habit-check-off --name <HABIT_NAME>
 ```
 
 ### Viewing All Habits
@@ -100,7 +100,7 @@ python tracker.py habit-check-off --name <HABIT_NAME>
 Print a list of all current habits.
 
 ```bash
-python tracker.py get-all
+python main.py get-all
 ```
 
 ### Viewing Habits by Periodicity
@@ -109,7 +109,7 @@ Print a list of habits with the specified periodicity.
 
 
 ```bash
-python tracker.py get-all-by-periodicity --periodicity <daily|weekly>
+python main.py get-all-by-periodicity --periodicity <daily|weekly>
 ```
 
 ### Viewing Current Longest Streak
@@ -117,7 +117,7 @@ python tracker.py get-all-by-periodicity --periodicity <daily|weekly>
 Print the current longest streak among all habits.
 
 ```bash
-python tracker.py current-longest-streak
+python main.py current-longest-streak
 ```
 
 ### Viewing Longest Streak for All Time
@@ -126,7 +126,7 @@ Print the longest streak for all habits throughout their history.
 
 
 ```bash
-python tracker.py longest-streak-for-all-time
+python main.py longest-streak-for-all-time
 ```
 
 ### Viewing Longest Streak for a Specific Habit
@@ -135,7 +135,7 @@ Print the longest streak for the specified habit.
 
 
 ```bash
-python tracker.py longest-streak-by-name --name <HABIT_NAME>
+python main.py longest-streak-by-name --name <HABIT_NAME>
 ```
 
 ## How to run tests
