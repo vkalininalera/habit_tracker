@@ -144,5 +144,5 @@ Unit tests are implemented with `unittest` library.
 To run tests execute the following command:
 
 ```shell
-python test_tracker.py
+python -m unittest tests/test_tracker.py
 ```
