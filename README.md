@@ -30,7 +30,7 @@ python -m pip install -r requirements.txt
 python main.py --help
 ```
 4. You should see the following text on your screen
-```commandline
+```txt
 Habit Tracker
 options:
 	-help, --help        show this help message and exit
