@@ -9,7 +9,7 @@ class HabitTracker:
 
     def __init__(self, db_name="habits_table.db"):
         # Connecting to SQLite
-        self.conn = sqlite3.connect('db/' + db_name)
+        self.conn = sqlite3.connect('db/{}'.format(db_name))
 
         # Creating a cursor object using the cursor() method for both tables in order to operate on them respectively
         self.habits_cursor = self.conn.cursor()
