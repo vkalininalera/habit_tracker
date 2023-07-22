@@ -1,7 +1,3 @@
-# todo message about incorrect periodicity
-# todo message about UNIQUE constraint failed: habits_table.name
-
-
 import sqlite3
 import datetime
 import argparse
@@ -9,6 +5,8 @@ from sqlite3 import IntegrityError
 
 
 class HabitTracker:
+    """Habit tracker main class"""
+
     def __init__(self):
         # Connecting to SQLite
         self.conn = sqlite3.connect("habits_table.db")

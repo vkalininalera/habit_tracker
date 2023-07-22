@@ -1,11 +1,11 @@
-# tests_
 import datetime
 import unittest
 from sqlite3 import IntegrityError
 
-from Project_Habit_Tracker.tracker import HabitTracker
 import random
 import string
+
+from tracker import HabitTracker
 
 tracker_instance = HabitTracker()
 
