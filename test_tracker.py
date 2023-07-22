@@ -7,7 +7,7 @@ import string
 
 from tracker import HabitTracker
 
-tracker_instance = HabitTracker()
+tracker_instance = HabitTracker('test.db')
 
 
 def generate_random_string(length):

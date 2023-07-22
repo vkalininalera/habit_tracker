@@ -137,3 +137,12 @@ Print the longest streak for the specified habit.
 ```bash
 python tracker.py longest-streak-by-name --name <HABIT_NAME>
 ```
+
+## How to run tests
+
+Unit tests are implemented with `unittest` library. 
+To run tests execute the following command:
+
+```shell
+python test_tracker.py
+```

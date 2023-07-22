@@ -7,9 +7,9 @@ from sqlite3 import IntegrityError
 class HabitTracker:
     """Habit tracker main class"""
 
-    def __init__(self):
+    def __init__(self, db_name="habits_table.db"):
         # Connecting to SQLite
-        self.conn = sqlite3.connect("habits_table.db")
+        self.conn = sqlite3.connect(db_name)
 
         # Creating a cursor object using the cursor() method for both tables in order to operate on them respectively
         self.habits_cursor = self.conn.cursor()
