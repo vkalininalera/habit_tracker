@@ -5,7 +5,7 @@ from sqlite3 import IntegrityError
 import random
 import string
 
-from tracker import HabitTracker
+from src.tracker import HabitTracker
 
 tracker_instance = HabitTracker('test.db')
 
