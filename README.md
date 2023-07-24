@@ -133,8 +133,7 @@ python main.py get-all-by-periodicity --periodicity <daily|weekly>
 ```
 Example of output:
 ```shell
-python tracker.py get-all-by-periodicity --periodicity weekly
-python tracker.py get-all-by-periodicity --periodicity daily
+Name - swimming; periodicty - weekly; creation date - 2023-07-02 13:02:53
 ```
 ### Viewing Current Longest Streak
 
