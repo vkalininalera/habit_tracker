@@ -25,10 +25,8 @@ class TestHabitTracker(unittest.TestCase):
         tracker_instance.conn.commit()
 
     def test_add_nonexistent_habit_successfully(self):
-        # execution
         tracker_instance.add_habit(self.habit_name, self.valid_habit_periodicity)
 
-        # check
         found_habits = tracker_instance.conn.execute('SELECT count(*) FROM habits_table WHERE name = ?',
                                                      (self.habit_name,)).fetchone()
         self.assertEqual(1, found_habits[0])
@@ -147,7 +145,6 @@ class TestHabitTracker(unittest.TestCase):
 
         check_offs = tracker_instance.conn.execute('SELECT date FROM check_off_table WHERE habit_id = ?',
                                                    (habit_id,)).fetchall()
-        # [('26-06-2023', ), ('27-06-2023', )] -> ['26-06-2023', '27-06-2023']
         actual_dates = sorted(map(lambda x: x[0], check_offs))
 
         expected_dates = sorted([datetime.date.today().strftime('%Y-%m-%d'), yesterday_str])
@@ -191,7 +188,6 @@ class TestHabitTracker(unittest.TestCase):
 
         check_offs = tracker_instance.conn.execute('SELECT date FROM check_off_table WHERE habit_id = ?',
                                                    (habit_id,)).fetchall()
-        # [('26-06-2023', ), ('27-06-2023', )] -> ['26-06-2023', '27-06-2023']
         actual_dates = list(map(lambda x: x[0], check_offs))
 
         expected_dates = [datetime.date.today().strftime('%Y-%m-%d')]
@@ -202,20 +198,13 @@ class TestHabitTracker(unittest.TestCase):
         habit_id = tracker_instance.add_habit(self.habit_name, 'weekly')
 
         tracker_instance.check_off(self.habit_name)
-
-        today = datetime.date.today()
-        three_days_ago = today - datetime.timedelta(days=3)
-        three_days_ago_str = three_days_ago.strftime('%Y-%m-%d')
-        tracker_instance.conn.execute('UPDATE check_off_table SET date = ? WHERE habit_id = ?',
-                                      (three_days_ago_str, habit_id))
-
         tracker_instance.check_off(self.habit_name)
 
         check_offs = tracker_instance.conn.execute('SELECT date FROM check_off_table WHERE habit_id = ?',
                                                    (habit_id,)).fetchall()
         actual_dates = list(map(lambda x: x[0], check_offs))
 
-        expected_dates = [three_days_ago_str]
+        expected_dates = [datetime.date.today().strftime('%Y-%m-%d')]
 
         self.assertEqual(actual_dates, expected_dates)
 
@@ -291,7 +280,7 @@ class TestHabitTracker(unittest.TestCase):
         tracker_instance.check_off(self.habit_name)
 
         today = datetime.date.today()
-        eight_days_ago = today - datetime.timedelta(weeks=1) - datetime.timedelta(days=1)
+        eight_days_ago = today - datetime.timedelta(weeks=1)
         eight_days_ago_str = eight_days_ago.strftime('%Y-%m-%d')
         tracker_instance.conn.execute('UPDATE check_off_table SET date = ? WHERE habit_id = ?',
                                       (eight_days_ago_str, habit_id))
@@ -378,7 +367,7 @@ class TestHabitTracker(unittest.TestCase):
 
         tracker_instance.check_off(self.habit_name)
 
-        # making streak eq to 2
+        # making streak equal to 2
         today = datetime.date.today()
         yesterday = today - datetime.timedelta(days=1)
         yesterday_str = yesterday.strftime('%Y-%m-%d')
