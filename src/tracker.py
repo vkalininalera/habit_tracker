@@ -6,9 +6,9 @@ from sqlite3 import IntegrityError
 class HabitTracker:
     """Habit tracker main class"""
 
-    def __init__(self, db_name="habits_table.db"):
+    def __init__(self, db_path="db/habits_table.db"):
         # Connecting to SQLite
-        self.conn = sqlite3.connect('db/{}'.format(db_name))
+        self.conn = sqlite3.connect(db_path)
 
         # Creating a cursor object using the cursor() method for both tables in order to operate on them respectively
         self.habits_cursor = self.conn.cursor()
@@ -144,8 +144,8 @@ class HabitTracker:
                 if habit_periodicity == 'daily' and diff.days == 0:
                     print("You have check the habit today already")
                     return
-                elif habit_periodicity == 'weekly' and last_check_off_date.isocalendar()[1] == date_today.isocalendar()[
-                    1]:
+                elif habit_periodicity == 'weekly' and \
+                        last_check_off_date.isocalendar()[1] == date_today.isocalendar()[1]:
                     print("You have check the habit today already")
                     return
 
