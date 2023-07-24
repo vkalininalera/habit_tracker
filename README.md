@@ -78,6 +78,11 @@ Delete an existing habit by providing its name.
 ```bash
 python main.py habit-delete --name <HABIT_NAME>
 ```
+Example of output:
+
+```shell
+Habit 'running' is deleted
+```
 
 ### Editing a Habit
 
@@ -85,6 +90,12 @@ Edit an existing habit by providing its name and optional new name and/or period
 
 ```bash
 python main.py habit-edit --name <HABIT_NAME> [--new-name <NEW_HABIT_NAME>] [--new-periodicity <daily|weekly>]
+```
+Example of output:
+
+```shell
+Habit name changed from 'running' to 'reading'
+No habit found with the name 'running'
 ```
 
 ### Checking-off a Habit
@@ -94,7 +105,11 @@ Check-off a habit for the current day, updating streak information if applicable
 ```bash
 python main.py habit-check-off --name <HABIT_NAME>
 ```
-
+Example of output:
+```shell
+Habit 'running' is checked-off. Congrats, you are doing great!
+Habit 'running' is on streak
+```
 ### Viewing All Habits
 
 Print a list of all current habits.
@@ -102,7 +117,12 @@ Print a list of all current habits.
 ```bash
 python main.py get-all
 ```
-
+Example of output:
+```shell
+Name - swimming; periodicity - weekly, created - 2023-07-02 13:02:53
+Name - walking; periodicity - daily, created - 2023-07-02 14:07:06
+Name - reading; periodicity - daily, created - 2023-07-02 14:10:55
+```
 ### Viewing Habits by Periodicity
 
 Print a list of habits with the specified periodicity.
@@ -111,13 +131,21 @@ Print a list of habits with the specified periodicity.
 ```bash
 python main.py get-all-by-periodicity --periodicity <daily|weekly>
 ```
-
+Example of output:
+```shell
+python tracker.py get-all-by-periodicity --periodicity weekly
+python tracker.py get-all-by-periodicity --periodicity daily
+```
 ### Viewing Current Longest Streak
 
 Print the current longest streak among all habits.
 
 ```bash
 python main.py current-longest-streak
+```
+Example of output:
+```shell
+Current longest streak 2, habit name 'swimming'
 ```
 
 ### Viewing Longest Streak for All Time
@@ -128,7 +156,10 @@ Print the longest streak for all habits throughout their history.
 ```bash
 python main.py longest-streak-for-all-time
 ```
-
+Example of output:
+```shell
+Longest streak for all the time is equal to 2, habit name 'swimming'
+```
 ### Viewing Longest Streak for a Specific Habit
 
 Print the longest streak for the specified habit.
@@ -136,6 +167,10 @@ Print the longest streak for the specified habit.
 
 ```bash
 python main.py longest-streak-by-name --name <HABIT_NAME>
+```
+Example of output:
+```shell
+Longest streak for 'reading' habit is equal to 0
 ```
 
 ## How to run tests
